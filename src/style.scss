@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700;800&display=swap");
 
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,6 +110,9 @@
     height: 80%;
     display: flex;
     overflow: hidden;
+    @include tablet {
+      width: 90%;
+    }
 
     .sidebar {
       flex: 1;
@@ -110,6 +130,9 @@
 
         .logo {
           font-weight: bold;
+          @include tablet {
+            display: none;
+          }
         }
 
         .user {
@@ -131,7 +154,11 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            padding: 0 2px;
+            padding: 2px;
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+            }
           }
         }
       }
